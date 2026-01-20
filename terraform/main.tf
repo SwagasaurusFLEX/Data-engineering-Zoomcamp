@@ -9,16 +9,16 @@ terraform {
 
 provider "google" {
   
-  credentials = "./keys/keys.json"
-  project = "totemic-studio-484706-n3"
-  region  = "us-central1"
+  credentials = file(var.credentials)
+  project = var.project
+  region  = var.region
 }
 
 
 
 resource "google_storage_bucket" "demo-bucket" {
-  name     = "i-h4ve-no-m0n3y"
-  location = "US"
+  name     = var.gcs_bucket_name
+  location = var.location
 
   # Optional, but recommended settings:
   storage_class               = "STANDARD"
@@ -42,7 +42,6 @@ resource "google_storage_bucket" "demo-bucket" {
 
 
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "demo_dataset_free"
-  project    = "totemic-studio-484706-n3"
-  location   = "US"
+  dataset_id = var.bq_dataset_name
+  location   = var.location
 }

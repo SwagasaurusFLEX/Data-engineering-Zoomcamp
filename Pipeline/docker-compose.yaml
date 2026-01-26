@@ -56,7 +56,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/kestra-wd:/tmp/kestra-wd
     environment:
-      SECRET_GCP_SERVICE_ACCOUNT: ${SECRET_GCP_SERVICE_ACCOUNT}
+      ENV_SECRET_GCP_SERVICE_ACCOUNT: ${SECRET_GCP_SERVICE_ACCOUNT}
       KESTRA_CONFIGURATION: |
         datasources:
           postgres:

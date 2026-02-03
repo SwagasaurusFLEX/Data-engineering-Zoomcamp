@@ -212,6 +212,7 @@ service-account.json
 *.json
 
 # Google Cloud SDK / gcloud
+gcloud/
 .google-cloud-sdk/
 .config/gcloud/
 cache/

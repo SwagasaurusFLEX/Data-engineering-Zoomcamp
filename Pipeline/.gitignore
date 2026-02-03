@@ -210,3 +210,8 @@ __marimo__/
 .env_encoded
 service-account.json
 *.json
+
+# Google Cloud SDK / gcloud
+.google-cloud-sdk/
+.config/gcloud/
+

@@ -217,3 +217,5 @@ gcloud/
 .config/gcloud/
 cache/
 
+# Model serving directory
+serving_dir/

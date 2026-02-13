@@ -1,7 +1,16 @@
 default:
-  target: dev
+  target: dev  
   outputs:
     dev:
+      type: bigquery
+      method: service-account
+      keyfile: /workspaces/Data-engineering-Zoomcamp/servicekeys.json
+      project: zoomcamp-test-2
+      dataset: zoomcamp
+      threads: 4
+      timeout_seconds: 300
+    
+    prod:  
       type: bigquery
       method: service-account
       keyfile: /workspaces/Data-engineering-Zoomcamp/servicekeys.json

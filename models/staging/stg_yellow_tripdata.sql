@@ -27,7 +27,7 @@ renamed as (
         cast(tip_amount as numeric) as tip_amount,
         cast(tolls_amount as numeric) as tolls_amount,
         cast(improvement_surcharge as numeric) as improvement_surcharge,
-        0 as ehail_fee,  -- Yellow taxis don't have ehail_fee
+        cast(0 as numeric) as ehail_fee,
         cast(total_amount as numeric) as total_amount,
         cast(payment_type as integer) as payment_type
 

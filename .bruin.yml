@@ -4,9 +4,4 @@ environments:
         connections:
             duckdb:
                 - name: duckdb-default
-                  path: duckdb.db
-            chess:
-                - name: chess-default
-                  players:
-                    - MagnusCarlsen
-                    - Hikaru
+                  path: C:\Py\Bruin\zoomcamp\duckdb.db

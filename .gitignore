@@ -1,1 +1,10 @@
+*.exe
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.db
 .bruin.yml
+logs/runs
+logs/*.log
+*.py[cod]

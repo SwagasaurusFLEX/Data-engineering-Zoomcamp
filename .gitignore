@@ -8,3 +8,5 @@ __pycache__/
 logs/runs
 logs/*.log
 *.py[cod]
+.cursor/
+.dlt/

@@ -1,48 +1,34 @@
 """NYC Taxi data pipeline using dlt"""
 
 import dlt
-from dlt.sources.rest_api import rest_api_source
+import requests
+
+
+@dlt.resource(name="trips", write_disposition="replace")
+def taxi_trips():
+    base_url = "https://us-central1-dlthub-analytics.cloudfunctions.net/data_engineering_zoomcamp_api"
+    page = 1
+
+    while True:
+        response = requests.get(base_url, params={"page": page})
+        response.raise_for_status()
+        data = response.json()
+
+        if not data:
+            break
+
+        yield data
+        page += 1
+
 
 def load_taxi_data() -> None:
-    """
-    Load NYC taxi trip data from custom API into DuckDB
-    """
-    
-    # Define the REST API source
-    source = rest_api_source({
-        "client": {
-            "base_url": "https://us-central1-dlthub-analytics.cloudfunctions.net/data_engineering_zoomcamp_api",
-        },
-        "resources": [
-            {
-                "name": "trips",
-                "endpoint": {
-                    "path": "",  # Base URL is the endpoint
-                    "params": {
-                        "page": {
-                            "type": "incremental",
-                            "start": 1,
-                        }
-                    },
-                    "paginator": "json_response",  # Auto-detect pagination
-                },
-            }
-        ],
-    })
-
-    # Create a dlt pipeline
     pipeline = dlt.pipeline(
         pipeline_name="taxi_pipeline",
         destination="duckdb",
         dataset_name="nyc_taxi_data",
     )
 
-    # Run the pipeline
-    load_info = pipeline.run(source)
-    
-    # Print load statistics
-    print(f"Pipeline run completed!")
-    print(f"Loaded {len(load_info.loads_ids)} load packages")
+    load_info = pipeline.run(taxi_trips())
     print(load_info)
 
 

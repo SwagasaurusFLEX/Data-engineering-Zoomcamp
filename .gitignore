@@ -10,3 +10,6 @@ logs/*.log
 *.py[cod]
 .cursor/
 .dlt/
+.ipynb_checkpoints/
+data/
+fhvhv/

@@ -13,3 +13,10 @@ logs/*.log
 .ipynb_checkpoints/
 data/
 fhvhv/
+zones/
+tmp/
+lib/
+yellow_2025_11/
+*csv
+*.parquet
+*.json

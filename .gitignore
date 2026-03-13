@@ -1,19 +1,20 @@
-# Byte-compiled / optimized / DLL files
+*.exe
+.venv/
 __pycache__/
-*.py[codz]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
+*.pyc
+.DS_Store
+*.db
+.bruin.yml
+logs/runs
+logs/*.log
+*.py[cod]
+.cursor/
+.dlt/
+.ipynb_checkpoints/
+data/
+fhvhv/
+zones/
+tmp/
 lib/
 lib64/
 parts/
@@ -217,3 +218,7 @@ logs/
 dbt_internal_packages/
 
 .bruin.yml
+yellow_2025_11/
+*csv
+*.parquet
+*.json
